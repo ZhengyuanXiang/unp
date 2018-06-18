@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     bzero(&servaddr, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    servaddr.sin_port = htons(8000);
+    servaddr.sin_port = htons(SERV_PORT);
     
     Bind(listenfd, (struct sockaddr *)&servaddr, sizeof(servaddr));
 
@@ -21,12 +21,12 @@ int main(int argc, char **argv)
     {
         chilen = sizeof(cliaddr);
         connfd = Accept(listenfd, (struct sockaddr*)&cliaddr, &chilen);
-        if ((childpip = fork()) == 0)
+        if ((childpip = Fork()) == 0)
         {
-            close(listenfd);
+            Close(listenfd);
             str_echo(connfd);
             exit(0);
         }
-        close(listenfd);
+        Close(listenfd);
     }
 }

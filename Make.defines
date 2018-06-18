@@ -5,7 +5,7 @@ RANLIB = ranlib
 LIBUNP_NAME = ../libunp.a
 
 LIBS = ../libunp.a 
-LIB_OBJS =  writen.o errors.o str_echo.o wrapsocket.o
+LIB_OBJS =  writen.o errors.o str_echo.o wrapsocket.o wrapunix.o wraplib.o str_cli.o wrapstdio.o readline.o
 
 CLEANFILES = core core.* *.core *.o temp.* *.out typescript* \
 		*.lc *.lh *.bsdi *.sparc *.uw
