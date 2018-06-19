@@ -27,6 +27,6 @@ int main(int argc, char **argv)
             str_echo(connfd);
             exit(0);
         }
-        Close(listenfd);
+        Close(connfd);
     }
 }
