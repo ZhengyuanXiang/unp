@@ -15,6 +15,7 @@ int main(int argc, char **argv)
     servaddr.sin_port = htons(SERV_PORT);
     
     Bind(listenfd, (struct sockaddr *)&servaddr, sizeof(servaddr));
+    Signal(SIGCHLD, sigchld);
 
     Listen(listenfd, LISTENQ);
     for (;;)

@@ -8,8 +8,13 @@
 #include <arpa/inet.h>
 #include <sys/syslog.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <signal.h>
 
 #define	MAXLINE	4096
 #define SERV_PORT 9877
+#define	LISTENQ	1024
 
 #define	SA	struct sockaddr
+typedef	void Sigfunc(int);
+void sigchld(int signo);
