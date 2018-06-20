@@ -17,4 +17,3 @@
 
 #define	SA	struct sockaddr
 typedef	void Sigfunc(int);
-void sigchld(int signo);
